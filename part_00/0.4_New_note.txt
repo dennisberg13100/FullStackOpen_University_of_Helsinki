@@ -1,0 +1,10 @@
+Browser-->Server: HTTPS POST https://studies.cs.helsinki.fi/exampleapp/new_note
+Server-->Browser: Redirect(302) --> /exampleapp/notes
+Browser-->Server: HTTPS GET https://studies.cs.helsinki.fi/exampleapp/notes
+Server-->Browser: notes.html
+Browser-->Server: HTTPS GET https://studies.cs.helsinki.fi/exampleapp/main.css
+Server-->Browser: main.css
+Browser-->Server: HTTPS https://studies.cs.helsinki.fi/exampleapp/main.js
+Server-->Browser: main.js
+Browser-->Server: HTTPS GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Server-->Browser: data.json
