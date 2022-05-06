@@ -1,6 +1,14 @@
-  1 1.1: course information step1---> 0:30 
-  2 1.2: course information step2---> 0:10
-  3 1.3: course information step3---> 0:05
-  4 1.4: course information step4---> 0:30
-  5 1.5: course information step5---> 0:30
-
+1.1: course information step1 --> 0:30 
+1.2: course information step2 --> 0:10
+1.3: course information step3 --> 0:05
+1.4: course information step4 --> 0:30
+1.5: course information step5 --> 0:30
+1.6: unicafe step1 -------------> 0:20
+1.7: unicafe step2 -------------> 0:10
+1.8: unicafe step3 -------------> 0:00
+1.9: unicafe step4 -------------> 0:00
+1.10: unicafe step5 ------------> 0:00
+1.11*: unicafe step6 -----------> 0:30
+1.12*: anecdotes step1 ---------> 0:00
+1.13*: anecdotes step2 ---------> 0:00
+1.14*: anecdotes step3 ---------> 1:25
