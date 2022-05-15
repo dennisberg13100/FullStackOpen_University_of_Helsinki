@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import List from './components/List'
 
 function App() {
   const [ countries, setCountries ] = useState([])
@@ -13,8 +14,6 @@ function App() {
         setCountries(response.data)
       })
   }, [])
-
-  console.log(countries[0])
 
   const handleSearch = (event) => {
     setSearch(event.target.value)
@@ -33,12 +32,11 @@ function App() {
           onChange={handleSearch}
         />
       </div>
-      <ul>
-        {filteredCountries.map((countrie) => {
-          return(<li key={countrie.name.common} >{countrie.name.common}</li>)
-        })}
-      </ul>
-      
+      <div>
+        <List countries={filteredCountries} 
+              setFilteredCountries={setFilteredCountries}
+        />
+      </div>
     </div>
   );
 }

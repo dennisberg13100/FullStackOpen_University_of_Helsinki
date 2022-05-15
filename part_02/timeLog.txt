@@ -1,4 +1,5 @@
-Exercises 2.1.-2.5. --------> 1:30
-Exercises 2.6.-2.10. -------> 3:00
-2.11: The Phonebook Step6 --> 0:25
-
+Exercises 2.1.-2.5. -----------------> 1:30
+Exercises 2.6.-2.10. ----------------> 3:00
+2.11: The Phonebook Step6 -----------> 0:25
+2.13*: Data for countries, step2 ----> 4:15
+50 min
