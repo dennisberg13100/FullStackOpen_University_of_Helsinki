@@ -42,11 +42,24 @@ const ShortList = ({ countries, setFilteredCountries }) => {
 }
 
 const OneCountrie = ({countrie}) => {
-  console.log(countrie)
   const api_key = process.env.REACT_APP_API_KEY
-  console.log(api_key)
+  const [ temp, setTemp ] = useState('')
+  const [ icon, setIcon ] = useState('')
+  const [ weatherDescription, setWeatherDescription] = useState('')
+  const [ wind, setWind ] = useState('')
 
-  
+  useEffect(() => {
+    axios
+    .get(`https://api.openweathermap.org/data/2.5/weather?lat=${countrie.latlng[0]}&lon=${countrie.latlng[1]}&appid=${api_key}&units=metric`)
+    .then((response) => {
+      setTemp(response.data.main.temp)
+      setIcon(response.data.weather[0].icon)
+      setWeatherDescription(response.data.weather[0].description)
+      setWind(response.data.wind.speed)
+    })
+  }, [countrie, api_key])
+
+
 
   const lang = Object.values(countrie.languages)
   return(
@@ -63,8 +76,17 @@ const OneCountrie = ({countrie}) => {
             width='200'
       />
       <h3>Weather in {countrie.name.common}</h3>
+      <div>Temperatura: {temp} °C</div>
+      {
+        // eslint-disable-next-line
+        icon == []
+        ? ''
+        : <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt={weatherDescription}/>
+      }
+      <div>Wind: {wind} m/s</div>      
     </div>
   )
 }
-
   export default List
+
+  
