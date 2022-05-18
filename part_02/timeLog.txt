@@ -3,3 +3,5 @@ Exercises 2.6.-2.10. ----------------> 3:00
 2.11: The Phonebook Step6 -----------> 0:25
 2.13*: Data for countries, step2 ----> 4:15
 2.14*: Data for countries, step3 ----> 1:50
+Exercises 2.15.-2.18. ---------------> 1:50
+Exercises 2.19.-2.20. ---------------> 0:50

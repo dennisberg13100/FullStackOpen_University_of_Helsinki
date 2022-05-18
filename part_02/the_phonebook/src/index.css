@@ -1,0 +1,24 @@
+.success {
+  color: #0D2E13;
+  background-color: #D4ECDA;
+  font-size: 0 15px;
+  border: 1px solid #0D2E13;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.success p,
+.warning p {
+  margin: 0;
+}
+
+.warning { 
+  color: #AF4024;
+  background-color: #F8D7DA;
+  font-size: 0 15px;
+  border: 1px solid #AF4024;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 15px;
+}

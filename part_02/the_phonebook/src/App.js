@@ -1,14 +1,18 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+// Components
 import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
+import Message from './components/Message'
+// Services 
+import personsService from './services/persons'
 
 const App = () => {
   const [ person, setPerson ] = useState([])
   const [ newName, setNewName ] = useState('')
   const [ newPhone, setNewPhone ] = useState('')
-    
+  const [ message, setMessage ] = useState(null)
+  
   const handleNameChange = (event) => setNewName(event.target.value)
   const handlePhoneChange = (event) => setNewPhone(event.target.value)
   const handleNewSearch = (event) => {
@@ -23,15 +27,12 @@ const App = () => {
   }
 
   useEffect(() => {
-    axios
-      .get('http://localhost:3001/persons')
-      .then( response => {
-        console.log(response.data)
-        setPerson(response.data)
-        
+    personsService
+      .getAll()
+      .then( initialPersons => {
+        setPerson(initialPersons)
       })
   }, [])
-  console.log(person)
 
   const addName = (event) => {
     event.preventDefault()
@@ -40,14 +41,31 @@ const App = () => {
       const newObject = {
         name: newName,
         number: newPhone,
-        id: person.length + 1,
         show: true
       }
-      setPerson(person.concat(newObject))
-      setNewName('')
-      setNewPhone('')
+      personsService
+        .create(newObject)
+        .then(returnedPerson => {
+          setPerson(person.concat(returnedPerson))
+          setNewName('')
+          setNewPhone('')
+          setMessage({
+            type:'success', 
+            content:`Added ${returnedPerson.name}`,
+          })
+          setTimeout(() => {
+            setMessage(null)
+          }, 5000)
+        })
+         
     } else {
-      alert(`${newName} is already added to phonebook!`)
+      setMessage({
+        type:'warning', 
+        content: `${newName} is already added to phonebook!`,
+      })
+      setTimeout(() => {
+        setMessage(null)
+      }, 5000)
     } 
   }
 
@@ -55,6 +73,7 @@ const App = () => {
     <div>
       <h1>Phonebook</h1>
       <Filter eventHandler={handleNewSearch}/>
+      <Message  message={message} />
       <h2>Add a new</h2>
       <PersonForm 
         addName={addName}
@@ -64,7 +83,10 @@ const App = () => {
         handlePhoneChange={handlePhoneChange}
       />
       <h2>Numbers</h2>
-        <Persons person={person} />
+        <Persons 
+          person={person} 
+          setPerson={setPerson}
+        />
     </div>
   );
 }

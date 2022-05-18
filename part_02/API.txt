@@ -1,0 +1,5 @@
+REST contries:
+https://restcountries.com/
+
+open weather:
+https://openweathermap.org/
